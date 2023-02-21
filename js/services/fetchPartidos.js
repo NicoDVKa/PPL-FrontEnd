@@ -1,4 +1,4 @@
-const urlBase = 'http://localhost:3000/partido';
+const urlBase = 'https://ppl-backend-production.up.railway.app/partido';
 
 
 export const getPartidos = async (fechaId,callback) =>{

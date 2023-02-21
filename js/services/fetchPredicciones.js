@@ -1,4 +1,4 @@
-const urlBase = 'http://localhost:3000/prediccion';
+const urlBase = 'https://ppl-backend-production.up.railway.app/prediccion';
 
 
 export const getPrediccionByPartidoId = async (partidoId,callback) =>{

@@ -1,4 +1,4 @@
-const urlBase = 'http://localhost:3000/userTabla';
+const urlBase = 'https://ppl-backend-production.up.railway.app/userTabla';
 
 
 export const createUserTabla = async (userTablaJson) => {

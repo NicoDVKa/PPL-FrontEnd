@@ -1,4 +1,4 @@
-const urlBase = 'http://localhost:3000/fecha';
+const urlBase = 'https://ppl-backend-production.up.railway.app/fecha';
 
 export const getFecha = async (fechaId,callback) =>{
 

@@ -1,4 +1,4 @@
-const urlBase = 'http://localhost:3000/competicion';
+const urlBase = 'https://ppl-backend-production.up.railway.app/competicion';
 
 
 export const getCompeticiones = async (callback) =>{

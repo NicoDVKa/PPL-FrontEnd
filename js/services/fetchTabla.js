@@ -1,1 +1,1 @@
-const urlBase = 'http://localhost:3000/tabla';
+const urlBase = 'https://ppl-backend-production.up.railway.app/tabla';
