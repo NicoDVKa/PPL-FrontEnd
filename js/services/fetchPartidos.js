@@ -43,7 +43,7 @@ export const createPartido = async (partidoJson,callback) => {
 }
 
 export const updatePartido = async (partidoId,golesJson) =>{
-
+    let partidoUpdated;
     await fetch (url + "/" + partidoId,{
         method : 'PUT',
         headers:{
@@ -57,9 +57,9 @@ export const updatePartido = async (partidoId,golesJson) =>{
             return httpResponse.json();
     }) 
     .then( body =>{
-        console.log(body);
+        partidoUpdated = body;
     })
-
+    return partidoUpdated;
 }
 
 export const updatePartidoEnCurso = async (partidoId) =>{

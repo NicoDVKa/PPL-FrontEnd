@@ -7,8 +7,9 @@ export let socket = io(urlBase);
 
 console.log(socket);
 
-socket.on('update partido', function(msg){
+socket.on('update partido', async function(msg){
   console.log(msg);
+  await RenderPartidos();
 })
 
 

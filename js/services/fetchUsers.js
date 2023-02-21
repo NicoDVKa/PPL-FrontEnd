@@ -21,7 +21,6 @@ export const getUsers = async (callback) => {
         return httpResponse.json();
     })
     .then(body =>{
-
         callback(body);
     })
 }

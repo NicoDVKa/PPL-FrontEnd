@@ -150,9 +150,9 @@ export const updatePartidoEstado = async (partidoId,estado) =>{
 //RENDER UPDATE PARTIDO GOLES
 export const updatePartidoGoles = async (partidoId,golesJson) =>{
 
-    await updatePartido(partidoId , golesJson);
+   let partido = await updatePartido(partidoId , golesJson);
 
-   socket.emit('update partido', 'se actualizo un partido');
+   socket.emit('update partido', partido);
 
     await RenderPartidos();
 };
