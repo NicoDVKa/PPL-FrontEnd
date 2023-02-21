@@ -1,9 +1,10 @@
-const urlBase = 'https://ppl-backend-production.up.railway.app/competicion';
+import { urlBase } from "../config.js";
 
+const url = urlBase + '/competicion'
 
 export const getCompeticiones = async (callback) =>{
 
-    await fetch(urlBase)
+    await fetch(url)
     .then((httpResponse) => {
         return httpResponse.json();
     })
@@ -14,7 +15,7 @@ export const getCompeticiones = async (callback) =>{
 
 export const createCompeticion = async (compJson) => {
 
-    await fetch (urlBase, {
+    await fetch (url, {
         method : 'POST',
         headers:{
     

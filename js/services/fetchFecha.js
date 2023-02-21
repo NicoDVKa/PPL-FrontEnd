@@ -1,8 +1,9 @@
-const urlBase = 'https://ppl-backend-production.up.railway.app/fecha';
+import { urlBase } from "../config.js";
+const url = urlBase + '/fecha';
 
 export const getFecha = async (fechaId,callback) =>{
 
-    await fetch (urlBase+ '/' + fechaId)
+    await fetch (url+ '/' + fechaId)
     .then( (httpResponse) => {
         if(httpResponse.ok)
             return httpResponse.json();
@@ -15,7 +16,7 @@ export const getFecha = async (fechaId,callback) =>{
 
 export const getFechasByComp = async (compId,callback) =>{
 
-    await fetch (urlBase+'ByComp/' + compId)
+    await fetch (url+'ByComp/' + compId)
     .then( (httpResponse) => {
         if(httpResponse.ok)
             return httpResponse.json();
@@ -27,7 +28,7 @@ export const getFechasByComp = async (compId,callback) =>{
 
 export const createFecha = async (fechaJson) =>{
 
-    await fetch (urlBase, {
+    await fetch (url, {
         method : 'POST',
         headers:{
     

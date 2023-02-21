@@ -1,9 +1,10 @@
-const urlBase = 'https://ppl-backend-production.up.railway.app/partido';
+import { urlBase } from "../config.js";
+const url = urlBase+'/partido';
 
 
 export const getPartidos = async (fechaId,callback) =>{
 
-    await fetch (urlBase + "/" + fechaId)
+    await fetch (url + "/" + fechaId)
     .then( (httpResponse) => {
         if(httpResponse.ok)
             return httpResponse.json();
@@ -16,7 +17,7 @@ export const getPartidos = async (fechaId,callback) =>{
 
 export const createPartido = async (partidoJson,callback) => {
     
-    await fetch (urlBase, {
+    await fetch (url, {
         method : 'POST',
         headers:{
     
@@ -43,7 +44,7 @@ export const createPartido = async (partidoJson,callback) => {
 
 export const updatePartido = async (partidoId,golesJson) =>{
 
-    await fetch (urlBase + "/" + partidoId,{
+    await fetch (url + "/" + partidoId,{
         method : 'PUT',
         headers:{
     
@@ -63,7 +64,7 @@ export const updatePartido = async (partidoId,golesJson) =>{
 
 export const updatePartidoEnCurso = async (partidoId) =>{
 
-    await fetch (urlBase + "EnCurso/" + partidoId,{
+    await fetch (url + "EnCurso/" + partidoId,{
         method : 'PUT'
     })
     .then( (httpResponse) => {
@@ -78,7 +79,7 @@ export const updatePartidoEnCurso = async (partidoId) =>{
 
 export const updatePartidoFinal = async (partidoId) =>{
 
-    await fetch (urlBase + "Final/" + partidoId,{
+    await fetch (url + "Final/" + partidoId,{
         method : 'PUT'
     })
     .then( (httpResponse) => {

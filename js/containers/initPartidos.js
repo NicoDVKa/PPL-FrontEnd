@@ -1,5 +1,6 @@
 import { getPartidos , createPartido, updatePartido, updatePartidoEnCurso, updatePartidoFinal} from "../services/fetchPartidos.js";
 import { registroPartido, botonAgregarPartido, headerPartido } from "../components/tablaPartidos.js";
+import { socket } from "../init.js";
 
 
 export const RenderPartidos = async () =>{
@@ -150,6 +151,8 @@ export const updatePartidoEstado = async (partidoId,estado) =>{
 export const updatePartidoGoles = async (partidoId,golesJson) =>{
 
     await updatePartido(partidoId , golesJson);
+
+   socket.emit('update partido', 'se actualizo un partido');
 
     await RenderPartidos();
 };

@@ -1,6 +1,16 @@
+import { urlBase } from "./config.js";
 import { RenderComps, guardarCompeticion} from "./containers/initCompeticiones.js";
 import { guardarFecha, RenderFechas } from "./containers/initFechas.js";
 import { guardarPartido, updatePartidoEstado, updatePartidoGoles} from "./containers/initPartidos.js";
+
+export let socket = io(urlBase);
+
+console.log(socket);
+
+socket.on('update partido', function(msg){
+  console.log(msg);
+})
+
 
 window.onload = async () => {
   

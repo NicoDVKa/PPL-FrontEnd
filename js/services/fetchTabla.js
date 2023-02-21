@@ -1,1 +1,2 @@
-const urlBase = 'https://ppl-backend-production.up.railway.app/tabla';
+import { urlBase } from "../config.js";
+const url = urlBase + '/tabla';

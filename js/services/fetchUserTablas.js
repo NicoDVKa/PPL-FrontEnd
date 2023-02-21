@@ -1,9 +1,10 @@
-const urlBase = 'https://ppl-backend-production.up.railway.app/userTabla';
+import { urlBase } from "../config.js";
+const url = urlBase + '/userTabla';
 
 
 export const createUserTabla = async (userTablaJson) => {
     
-    await fetch (urlBase, {
+    await fetch (url, {
         method : 'POST',
         headers:{
     

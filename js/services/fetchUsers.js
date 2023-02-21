@@ -1,10 +1,11 @@
-const urlBase = 'https://ppl-backend-production.up.railway.app/user';
+import { urlBase } from "../config.js";
+const url = urlBase + '/user';
 
 
 
 export const getUserById = async(userId,callback) =>{
 
-    await fetch(urlBase + "/" + userId)
+    await fetch(url + "/" + userId)
     .then((httpResponse) => {
         return httpResponse.json();
     })
@@ -15,7 +16,7 @@ export const getUserById = async(userId,callback) =>{
 
 export const getUsers = async (callback) => {
 
-    await fetch(urlBase )
+    await fetch(url )
     .then((httpResponse) => {
         return httpResponse.json();
     })
@@ -27,7 +28,7 @@ export const getUsers = async (callback) => {
 
 export const createUser = async (userJson) => {
     
-    await fetch (urlBase, {
+    await fetch (url, {
         method : 'POST',
         headers:{
     

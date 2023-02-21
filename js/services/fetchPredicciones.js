@@ -1,9 +1,10 @@
-const urlBase = 'https://ppl-backend-production.up.railway.app/prediccion';
+import { urlBase } from "../config.js";
+const url =  urlBase+'/prediccion';
 
 
 export const getPrediccionByPartidoId = async (partidoId,callback) =>{
 
-    await fetch (urlBase + "Partido/" + partidoId)
+    await fetch (url + "Partido/" + partidoId)
 
     .then( (httpResponse) => {
         if(httpResponse.ok)
@@ -16,7 +17,7 @@ export const getPrediccionByPartidoId = async (partidoId,callback) =>{
 
 export const createPrediccion = async (prediccionJSON) =>{
 
-    await fetch (urlBase,{
+    await fetch (url,{
         method : 'POST',
         headers:{
     
@@ -36,7 +37,7 @@ export const createPrediccion = async (prediccionJSON) =>{
 
 export const updatePrediccion = async (prediccionId,prediccionJSON) =>{
 
-    await fetch (urlBase + "/" + prediccionId,{
+    await fetch (url + "/" + prediccionId,{
         method : 'PUT',
         headers:{
     
