@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/pipiIcon.png" type="image/x-icon" />
+    <title>PPL</title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body class="bg-dark">
+    <header>
+      <nav class="navbar  bg-dark navbar-dark  fixed-top">
+        <div class="container-fluid navContainer">
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <img src="/img/pipiIcon.png" class="img-fluid iconNav ms-3" alt="" />
+          <a class="navbar-brand ms-2" href="#"
+            >Patagonia Predictions League
+          </a>
+
+      
+        </div>
+      </nav>
+      <div
+        class="offcanvas offcanvas-start text-bg-dark"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            Patagonia Predictions League
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Torneo
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" id="dropdownComps">
+                
+              </ul>
+
+              <div>
+                <button class="btn text-light d-flex" data-bs-toggle="modal" data-bs-target="#modalAgregarTorneo"  id="">
+                  <i class="bi bi-plus-circle me-2"></i>
+                  <p>Agregar torneo</p>
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="pipiNoBitches h-75 d-flex " >
+            <img class="img-fluid mt-auto ps-5" src="/img/pipi2.png" alt="">
+          </div>
+          <h3 class="text-center">No bitches?</h3>
+         
+        </div>
+      </div>
+
+      <!-- Modal agregar torneos -->
+      <div class="modal fade" id="modalAgregarTorneo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content ">
+            <div class="modal-header bg-dark text-light border-0">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar torneo</h1>
+              <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-dark text-light border-0">
+              <div class="mb-3">
+                <label for="formNombreDelTorneo" class="form-label">Ingresar nombre del torneo</label>
+                <input type="text" class="form-control" id="formNombreDelTorneo">
+                
+              </div>
+            </div>
+            <div class="modal-footer bg-dark text-light border-0">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" id="guardarComp" data-bs-dismiss="modal">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container-fluid pt-5">
+        <div class="dropdown mt-3 mx-5 text-end ">
+          <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Fechas
+          </button>
+          <ul class="dropdown-menu"  >
+            <div id = "dropdownFecha">
+
+            </div>           
+            <hr class="mx-3">
+              <li>
+                <a class="dropdown-item text-center" href="#"> 
+                  <button class="btn d-flex"  data-bs-toggle="modal" data-bs-target="#modalAgregarFecha"id="">
+                    <i class="bi bi-plus-circle me-2"></i>
+                    <p>Agregar fecha</p>
+                  </button>
+                </a>
+              </li>
+          </ul>
+        </div>
+     
+     
+      <div
+        class="text-light text-center pb-2 border-bottom border-1 border-light mt-1 mx-5 d-flex justify-content-center"
+        id = "navFecha"
+      >
+             
+      </div>
+      
+      <div class="row d-flex mt-5">
+
+        <!-- Tabla partidos   -->
+        <div class="col-5 ">
+          <div
+            class="text-light text-center pb-2 border-bottom border-1 border-light table-responsive"
+          >
+            <h5>Partidos</h5>
+          </div>
+          <table
+            class="table table-dark table-striped align-middle text-center table-responsive"
+          >
+            <thead id ="headerTablaPartidos">
+             
+            </thead>
+            <tbody id = "tablaPartidos">
+            
+            </tbody>
+          </table>
+
+          <div class="w-100 " id="divAgregarPartidoFecha" >
+          
+          </div>
+        </div>
+
+        <!-- Tabla predicciones   -->
+        <div class="col-7 table-responsive">
+          <div
+            class="text-light text-center pb-2 border-bottom border-1 border-light"
+          >
+            <h5>Predicciones</h5>
+          </div>
+          <table
+            class="table table-dark table-striped align-middle text-center"
+          >
+            <thead >
+              <tr id="trPredicciones">
+              </tr>
+            </thead>
+            <tbody id="bodyPredicciones">
+            </tbody>
+          </table>
+          <div class="w-100" id ="divAgregarUsuarioPrediccion">
+          </div>
+        </div>
+
+        <!-- Tabla puntuaciones   -->
+        <div class="col-12 table-responsive mt-5">
+          <div
+            class="text-light text-center pb-2 border-bottom border-1 border-light"
+          >
+            <h5>Tabla de puntuaciones</h5>
+          </div>
+          <table class="table table-dark table-striped text-center">
+            <thead>
+              <tr>
+                <th scope="col">Posicion</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Puntos</th>
+                <th scope="col">Acierto al Ganador</th>
+                <th scope="col">Acierto al Resultado</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>#1</td>
+                <th scope="row">Nico</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>#2</td>
+                <th scope="row">Jaki</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>#3</td>
+                <th scope="row">Lio</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>#4</td>
+                <th scope="row">Mute</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>#5</td>
+                <th scope="row">Pansito</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+    <!-- Modal agregar partido   -->
+    <div class="modal fade" id="modalAgregarPartido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header bg-dark text-light border-0">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar partido</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark text-light border-0">
+            <div class="mb-3 row">
+              <div class="col-6">
+                <label for="formLocal" class="form-label">Ingresar equipo local</label>
+                <input type="text" class="form-control" id="formLocal">
+
+              </div>
+              
+          <div class="col-6">
+            <label for="formVisitante" class="form-label">Ingresar equipo visitante</label>
+            <input type="text" class="form-control" id="formVisitante">
+            
+          </div>
+              
+            </div>
+          </div>
+          <div class="modal-footer bg-dark text-light border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="guardarPartido" data-bs-dismiss="modal">Guardar </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal agregar usuario -->
+    <div class="modal fade" id="modalAgregarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header bg-dark text-light border-0">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar usuario</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark text-light border-0">
+            <div class="mb-3 ">
+              <label for="formUsuario" class="form-label">Ingresar nombre del usuario</label>
+              <input type="text" class="form-control" id="formUsuario">
+              
+            </div>
+          </div>
+          <div class="modal-footer bg-dark text-light border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal agregar fecha -->
+    <div class="modal fade" id="modalAgregarFecha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header bg-dark text-light border-0">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar fecha</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark text-light border-0">
+            <div class="mb-3 ">
+              <label for="formUsuario" class="form-label">Ingresar nombre de la fecha</label>
+              <input type="text" class="form-control" id="formFecha">
+              
+            </div>
+          </div>
+          <div class="modal-footer bg-dark text-light border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary"  id ="guardarFecha"data-bs-dismiss="modal">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal editar partido   -->
+    <div class="modal fade" id="modalEditarPartido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header bg-dark text-light border-0">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar partido</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark text-light border-0">
+            <div class="mb-3 row">
+              <div class="col-6">
+                <label for="formLocal" class="form-label">Editar equipo local</label>
+                <input type="text" class="form-control" id="formLocal">
+
+              </div>
+              
+          <div class="col-6">
+            <label for="formVisitante" class="form-label">Editar equipo visitante</label>
+            <input type="text" class="form-control" id="formVisitante">
+
+          </div>
+              
+            </div>
+          </div>
+          <div class="modal-footer bg-dark text-light border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal borrar partido   -->
+    <div class="modal fade" id="modalBorrarPartido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header bg-dark text-light border-0">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Borrar partido</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark text-light border-0 text-center">
+            <h5>Estas seguro que deseas borrar este partido?</h5>
+          </div>
+          <div class="modal-footer bg-dark text-light border-0 justify-content-center">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Borrar</button>
+            <button type="button" class="btn btn-primary">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Modal borrar Fecha   -->
+     <div class="modal fade" id="modalBorrarFecha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header bg-dark text-light border-0">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Borrar fecha</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark text-light border-0 text-center">
+            <h5>Estas seguro que deseas borrar esta Fecha?</h5>
+          </div>
+          <div class="modal-footer bg-dark text-light border-0 justify-content-center">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Borrar</button>
+            <button type="button" class="btn btn-primary">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Editar fecha -->
+    <div class="modal fade" id="modalEditarFecha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header bg-dark text-light border-0">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar fecha</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-dark text-light border-0">
+            <div class="mb-3 ">
+              <label for="formUsuario" class="form-label">Editar nombre de la fecha</label>
+              <input type="text" class="form-control" id="formFecha">
+              
+            </div>
+          </div>
+          <div class="modal-footer bg-dark text-light border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="module" src="../js/init.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

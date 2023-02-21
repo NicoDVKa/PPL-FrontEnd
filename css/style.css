@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navContainer{
+    justify-content: start !important;
+    max-height: 7vh;
+}
+
+
+.iconNav{
+    max-height: 7vh;
+}
+
+#comenzado.form-check-input:checked {
+    background-color: rgb(16, 161, 16) !important;
+    border-color: rgb(16, 161, 16) !important;
+}
+
+#terminado.form-check-input:checked {
+    background-color: red !important;
+    border-color: red !important;
+}
+
+
+.aciertoResultado.form-control {
+    background-color:  rgb(212, 212, 47) !important;
+  }
+
+.aciertoGoles.form-control {
+    background-color:  rgb(37, 183, 37) !important;
+  }
+
+.errado.form-control {
+    background-color:  red !important;
+  }
+
+
+
+
+
+  input { 
+    text-align: center; 
+}
