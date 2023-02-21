@@ -1,7 +1,7 @@
 import { urlBase } from "./config.js";
 import { RenderComps, guardarCompeticion} from "./containers/initCompeticiones.js";
 import { guardarFecha, RenderFechas } from "./containers/initFechas.js";
-import { guardarPartido, updatePartidoEstado, updatePartidoGoles} from "./containers/initPartidos.js";
+import { guardarPartido, RenderPartidos, updatePartidoEstado, updatePartidoGoles} from "./containers/initPartidos.js";
 
 export let socket = io(urlBase);
 
